@@ -13,14 +13,20 @@ top_right = pygame.Rect(90, 60, 130, 120)
 btm_area = pygame.Rect(220, 300, 130, 120)
 btm_left = pygame.Rect(350, 300, 130, 120)
 btm_right = pygame.Rect(90, 300, 130, 120)
+# draw_x = [
+#     [230, 80], [340, 160],
+#     [340, 80], [230, 160]
+# ]
 
 
 def main():
     pygame.init()
-    game_window = structure.GameStructure(600, 500)
-    game_window.display_window()
+    screen = pygame.display.set_mode((600, 500))
+    game_window = structure.GameStructure()
+    game_window.display_window(screen)
     game_play = gameplay.Gameplay()
-    game_play.start_game(mid_area, mid_left, mid_right, top_area, top_right, top_left, btm_area, btm_right, btm_left)
+    game_play.start_game(screen, mid_area, mid_left, mid_right, top_area, top_right, top_left, btm_area, btm_right,
+                         btm_left)
 
 
 if __name__ == "__main__":
