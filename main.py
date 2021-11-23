@@ -2,17 +2,17 @@ import pygame
 import sys
 import structure, gameplay
 
-mid_area = pygame.Rect(220, 180, 130, 120)
-mid_right = pygame.Rect(350, 180, 130, 120)
-mid_left = pygame.Rect(90, 180, 130, 120)
-
-top_area = pygame.Rect(220, 60, 130, 120)
-top_left = pygame.Rect(350, 60, 130, 120)
-top_right = pygame.Rect(90, 60, 130, 120)
-
-btm_area = pygame.Rect(220, 300, 130, 120)
-btm_left = pygame.Rect(350, 300, 130, 120)
-btm_right = pygame.Rect(90, 300, 130, 120)
+# mid_area = pygame.Rect(220, 180, 130, 120)
+# mid_right = pygame.Rect(350, 180, 130, 120)
+# mid_left = pygame.Rect(90, 180, 130, 120)
+#
+# top_area = pygame.Rect(220, 60, 130, 120)
+# top_right = pygame.Rect(350, 60, 130, 120)
+# top_left = pygame.Rect(90, 60, 130, 120)
+#
+# btm_area = pygame.Rect(220, 300, 130, 120)
+# btm_right = pygame.Rect(350, 300, 130, 120)
+# btm_left = pygame.Rect(90, 300, 130, 120)
 # draw_x = [
 #     [230, 80], [340, 160],
 #     [340, 80], [230, 160]
@@ -22,11 +22,12 @@ btm_right = pygame.Rect(90, 300, 130, 120)
 def main():
     pygame.init()
     screen = pygame.display.set_mode((600, 500))
-    game_window = structure.GameStructure()
+    game_window = structure
     game_window.display_window(screen)
-    game_play = gameplay.Gameplay()
-    game_play.start_game(screen, mid_area, mid_left, mid_right, top_area, top_right, top_left, btm_area, btm_right,
-                         btm_left)
+    # game_window.score_board(screen)
+    # game_play = gameplay.Gameplay()
+    # game_play.start_game(screen, mid_area, mid_left, mid_right, top_area, top_right, top_left, btm_area, btm_right,
+    #                      btm_left)
 
 
 if __name__ == "__main__":
