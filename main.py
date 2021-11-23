@@ -7,7 +7,7 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((600, 500))
     game_window = structure
-    game_window.display_window(screen)
+    game_window.display_window(screen) # game display window
 
 
 if __name__ == "__main__":
