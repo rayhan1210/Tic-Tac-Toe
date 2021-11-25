@@ -31,9 +31,7 @@ def main():
             if event.type == pygame.QUIT:
                 value = False
             if event.type == pygame.MOUSEBUTTONDOWN:
-                # mouse_pos = pygame.mouse.get_pos()
                 if pygame.Rect(RECT_G).collidepoint(event.pos):
-                    print("click")
                     gameplay.start_game(screen, FPS, BG, COORDINATES)
 
         pygame.display.update()

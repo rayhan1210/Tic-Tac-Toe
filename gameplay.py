@@ -5,7 +5,7 @@ import numpy
 
 ROW = 3
 COL = 3
-SQUARE = 200
+# SQUARE = 200
 board = [
     [0, 0, 0],
     [0, 0, 0],
@@ -37,41 +37,9 @@ def change_player(player):
 
 def draw_game_figure(screen, row, col):
     if board[row][col] == 2:
-        draw_o(screen, row, col)
+        structure.draw_o(screen, row, col)
     if board[row][col] == 1:
-        draw_x(screen, row, col)
-
-
-def draw_x(screen, row, col):
-    pygame.draw.line(screen, (0, 0, 0), (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 4),
-                     ((SQUARE * row - SQUARE / 4) + SQUARE, (col * SQUARE - SQUARE / 4) + SQUARE), width=15)
-    pygame.draw.line(screen, (0, 0, 0), (row * SQUARE + SQUARE / 4, (col * SQUARE - SQUARE / 4) + SQUARE),
-                     ((SQUARE * row - SQUARE / 4) + SQUARE, (col * SQUARE) + 50), width=15)
-
-
-def draw_o(screen, row, col):
-    pygame.draw.circle(screen, (0, 0, 0), (row * SQUARE + SQUARE / 2, (col * SQUARE) + SQUARE / 2), radius=50, width=15)
-
-
-def draw_horizontal_line(screen, row, col):
-    pygame.draw.line(screen, (0,0,0), (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 2),
-                     ((SQUARE * 3 - SQUARE / 4), (col * SQUARE) + SQUARE / 2), width=15)
-    # print("HERE")
-
-
-def draw_vertical_line(screen, row, col):
-    pygame.draw.line(screen, (0,0,0), (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 2),
-                     (row * SQUARE + SQUARE / 4, (3 * SQUARE) - SQUARE / 2), width=15)
-
-
-def draw_asc_diagonal(screen, row, col):
-    pygame.draw.line(screen, (255, 0, 0), (row * SQUARE + SQUARE / 2, SQUARE / 2),
-                     (abs(col * SQUARE - SQUARE / 2), (3 * SQUARE) - SQUARE / 2), width=15)
-
-
-def draw_dsc_diagonal(screen, row, col):
-    pygame.draw.line(screen, (255, 0, 0), (row * SQUARE + SQUARE / 2, (3 * SQUARE) - SQUARE / 2),
-                     (abs(row * SQUARE - SQUARE / 2), (3 * SQUARE) + SQUARE / 2), width=15)
+        structure.draw_x(screen, row, col)
 
 
 def game_win_check(game_board, player, screen):
@@ -79,30 +47,30 @@ def game_win_check(game_board, player, screen):
     for row in range(ROW):
         col = 0
         if game_board[row][0] == player and game_board[row][1] == player and game_board[row][2] == player:
-            draw_vertical_line(screen, row, col)
+            structure.draw_vertical_line(screen, row, col)
             return player
 
     # check horizontal
     for col in range(COL):
         row = 0
         if game_board[row][col] == player and game_board[row + 1][col] == player and game_board[row + 2][col] == player:
-            draw_horizontal_line(screen, row, col)
+            structure.draw_horizontal_line(screen, row, col)
             return player
 
     # check ascending diagonal
     if game_board[0][0] == player and game_board[1][1] == player and game_board[2][2] == player:
-        draw_asc_diagonal(screen, 0, 3)
+        structure.draw_asc_diagonal(screen, 0, 3)
         return player
     if game_board[0][2] == player and game_board[1][1] == player and game_board[2][0] == player:
-        draw_asc_diagonal(screen, 2, 1)
+        structure.draw_asc_diagonal(screen, 2, 1)
         return player
 
     # check descending diagonal
     if game_board[2][2] == player and game_board[1][1] == player and game_board[0][0] == player:
-        draw_horizontal_line(screen, 0, 2)
+        structure.draw_horizontal_line(screen, 0, 2)
         return player
     if game_board[2][0] == player and game_board[1][1] == player and game_board[0][2] == player:
-        draw_horizontal_line(screen, 2, 0)
+        structure.draw_horizontal_line(screen, 2, 0)
         return player
 
 
