@@ -11,6 +11,6 @@
 - 'r' key allow user to restart the game 
 
 
-<img src="image/main_menu.png"><br/>
-<img src="image/setting_page.png"><br/>
-<img src="image/winner.png"><br/>
+<img src="images/main_menu.png"><br/>
+<img src="images/setting_page.png"><br/>
+<img src="images/winner.png"><br/>
