@@ -5,7 +5,7 @@ import structure, gameplay, settings
 WIDTH = 600
 HEIGHT = 600
 FPS = 60
-BG = (51, 255, 220)
+BG = (70, 206, 188)
 RECT_G = (210, 200, 170, 40)
 # Rect(left, top, width, height)
 RECT_S = (210, 250, 170, 40)
@@ -17,6 +17,8 @@ COORDINATES = [
     (0, 400), (600, 400)
 ]
 mode = 1
+logo = pygame.image.load("tictactoe.JPG")
+pygame.display.set_icon(logo)
 pygame.display.set_caption("TIC TAC TOE")
 
 
@@ -25,9 +27,7 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     screen.fill(BG)
     structure.main_menu(screen)
-    text_x, text_y = 210, 200
     clock = pygame.time.Clock()
-    start = 0
     value = True
     while value:
         clock.tick(FPS)
