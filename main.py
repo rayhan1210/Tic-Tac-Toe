@@ -17,6 +17,7 @@ COORDINATES = [
     (0, 400), (600, 400)
 ]
 mode = 1
+pygame.display.set_caption("TIC TAC TOE")
 
 
 def main():
