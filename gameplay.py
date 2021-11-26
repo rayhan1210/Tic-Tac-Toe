@@ -1,7 +1,7 @@
 import pygame
 import sys
 import structure
-import numpy
+import numpy, random
 
 ROW = 3
 COL = 3
@@ -35,11 +35,17 @@ def change_player(player):
     return player
 
 
-def draw_game_figure(screen, row, col):
-    if board[row][col] == 2:
-        structure.draw_o(screen, row, col)
-    if board[row][col] == 1:
-        structure.draw_x(screen, row, col)
+def draw_game_figure(screen):
+    for row in range(ROW):
+        for col in range(COL):
+            if board[row][col] == 2:
+                structure.draw_o(screen, row, col)
+            if board[row][col] == 1:
+                structure.draw_x(screen, row, col)
+    # if board[row][col] == 2:
+    #     structure.draw_o(screen, row, col)
+    # if board[row][col] == 1:
+    #     structure.draw_x(screen, row, col)
 
 
 def game_win_check(game_board, player, screen):
@@ -74,8 +80,27 @@ def game_win_check(game_board, player, screen):
         return player
 
 
-def start_game(screen, FPS, BG, COORDINATES):
-    player = 0
+def mode_one(player, row, col):
+    if check_board(row, col):
+        if player == 1:
+            board[row][col] = 1
+        else:
+            board[row][col] = 0
+        # player = 2
+
+
+def mode_two(row, col, two_player):
+    if check_board(row, col):
+        two_player = change_player(two_player)
+        if two_player == 1:
+            board[row][col] = 1
+        elif two_player == 2:
+            board[row][col] = 2
+    return two_player
+
+
+def start_game(screen, FPS, BG, COORDINATES, mode):
+    player, two_player = 1, 0
     value = True
     clock = pygame.time.Clock()
     structure.draw_game_outlier(screen, BG, (74, 171, 155), COORDINATES)
@@ -89,16 +114,36 @@ def start_game(screen, FPS, BG, COORDINATES):
                 mouseY = event.pos[1]
                 row = int(mouseX // 200)
                 col = int(mouseY // 200)
-                if check_board(row, col):
-                    player = change_player(player)
-                    if player == 1:
-                        board[row][col] = 1
-                    elif player == 2:
-                        board[row][col] = 2
-                    else:
-                        board[row][col] = 0
-                    if game_win_check(board, player, screen) == player:
-                        # print(f"player {player} wins")
-                        value = False
-                draw_game_figure(screen, row, col)
+                if mode == 2:
+                    two_player = mode_two(row, col, two_player)
+                    draw_game_figure(screen, row, col)
+                if mode == 1:
+                    mode_one(player, row, col)
+                    player = 2
+            if mode == 1:
+                bot_row = random.randint(0, 2)
+                bot_col = random.randint(0, 2)
+                if player == 2 and check_board(bot_row, bot_col):
+                    board[bot_row][bot_col] = 2
+                    player = 1
+            if game_win_check(board, player, screen) == player:
+                value = False
+            draw_game_figure(screen)
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
+                    reset_board()
+                    screen.fill(BG)
+                    structure.draw_game_outlier(screen, BG, (74, 171, 155), COORDINATES)
+                    print(board)
+                if event.key == pygame.K_ESCAPE:
+                    screen.fill(BG)
+                    structure.main_menu(screen)
+                    value = False
+                    # value = False
         pygame.display.update()
+
+
+def reset_board():
+    for row in range(ROW):
+        for col in range(COL):
+            board[row][col] = 0
