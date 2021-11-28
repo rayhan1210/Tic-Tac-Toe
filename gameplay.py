@@ -5,7 +5,6 @@ import random
 
 ROW = 3
 COL = 3
-# SQUARE = 200
 LINE_COLOR = (74, 171, 155)
 board = [
     [0, 0, 0],

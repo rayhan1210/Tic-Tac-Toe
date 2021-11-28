@@ -33,8 +33,8 @@ def setting_screen(screen):
     screen.fill((70, 206, 188))
     game_font = pygame.font.SysFont("Comic Sans MS", 40)
     text_surface = game_font.render("Settings", False, border)
-    # draws image on to another, in this case text on the screen
     screen.blit(text_surface, (220, 120))
+    # draws image on to another, in this case text on the screen
     setting_box(screen, "Comic Sans MS", "One Player", 210, 200, 170, 40, 222, 195)
     setting_box(screen, "Comic Sans MS", "Two Player", 210, 250, 170, 40, 222, 245)
 

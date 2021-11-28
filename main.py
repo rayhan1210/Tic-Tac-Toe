@@ -1,6 +1,6 @@
 import pygame
 
-import gameplay, settings, structure
+import gameplay,  settings, structure
 
 WIDTH = 600
 HEIGHT = 600

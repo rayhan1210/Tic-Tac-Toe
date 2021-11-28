@@ -7,7 +7,7 @@ SQUARE = 200
 radius = 50
 FONT = "Comic Sans MS"
 MENU = "Main Menu"
-button = ["Play", "Settings"]
+button = ["Play", "Setting"]
 CROSS_COLOR = (45, 79, 86)
 o_color = (9, 127, 96)
 
@@ -26,10 +26,6 @@ def menu_box(screen, font, text, x, y, width, height, a, b):
     game_font = pygame.font.SysFont(font, 30)
     text_surface = game_font.render(text, False, border)
     screen.blit(text_surface, (a, b))
-
-
-def winning_message(screen):
-    screen.fill((51, 255, 220))
 
 
 def draw_game_outlier(screen, color, line_bg, coordinates):
