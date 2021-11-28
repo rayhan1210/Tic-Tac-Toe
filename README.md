@@ -1,9 +1,9 @@
 # Tic-Tac-Toe
 
-### This a simple tic-tac-toe game is implemented using python and pygame <br/>
+### This a simple tic-tac-toe game which includes a graphica GUI. Run main.py to tic-tac-toe <br/>
 
 ### This game have to following features:
-- One player mode against computer 
+- One player mode against bot 
 - Two player mode agaisnt another user
 
 ### Some key shortcuts:
