@@ -127,7 +127,6 @@ def start_game(screen, FPS, BG, COORDINATES, mode):
                 else:
                     player = 1
             draw_game_figure(screen)
-
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
                     reset_board()

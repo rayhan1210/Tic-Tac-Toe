@@ -2,12 +2,13 @@ import pygame
 
 border = (11, 101, 119)
 blue = (0, 0, 255)
+# CROSS_COLOR = (252, 240, 4)
 SQUARE = 200
 radius = 50
 FONT = "Comic Sans MS"
 MENU = "Main Menu"
 button = ["Play", "Settings"]
-x_color = (45, 79, 86)
+CROSS_COLOR = (45, 79, 86)
 o_color = (9, 127, 96)
 
 
@@ -41,9 +42,9 @@ def draw_game_outlier(screen, color, line_bg, coordinates):
 
 
 def draw_x(screen, row, col):
-    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 4),
+    pygame.draw.line(screen, CROSS_COLOR, (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 4),
                      ((SQUARE * row - SQUARE / 4) + SQUARE, (col * SQUARE - SQUARE / 4) + SQUARE), width=15)
-    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 4, (col * SQUARE - SQUARE / 4) + SQUARE),
+    pygame.draw.line(screen, CROSS_COLOR, (row * SQUARE + SQUARE / 4, (col * SQUARE - SQUARE / 4) + SQUARE),
                      ((SQUARE * row - SQUARE / 4) + SQUARE, (col * SQUARE) + 50), width=15)
 
 
@@ -52,21 +53,21 @@ def draw_o(screen, row, col):
 
 
 def draw_horizontal_line(screen, row, col):
-    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 2),
+    pygame.draw.line(screen, CROSS_COLOR, (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 2),
                      ((SQUARE * 3 - SQUARE / 4), (col * SQUARE) + SQUARE / 2), width=15)
 
 
 def draw_vertical_line(screen, row, col):
-    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 2, (col * SQUARE) + SQUARE / 4),
+    pygame.draw.line(screen, CROSS_COLOR, (row * SQUARE + SQUARE / 2, (col * SQUARE) + SQUARE / 4),
                      (row * SQUARE + SQUARE / 2, (3 * SQUARE) - SQUARE / 4), width=15)
 
 
 def draw_asc_diagonal(screen, row, col, row2, col2):
-    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 4),
+    pygame.draw.line(screen, CROSS_COLOR, (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 4),
                      ((SQUARE * row2 - SQUARE / 4) + SQUARE, (col2 * SQUARE - SQUARE / 4) + SQUARE), width=15)
 
 
 def draw_asc_diagonal2(screen, row, col, row2, col2):
-    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 4, (col * SQUARE - SQUARE / 4) + SQUARE),
+    pygame.draw.line(screen, CROSS_COLOR, (row * SQUARE + SQUARE / 4, (col * SQUARE - SQUARE / 4) + SQUARE),
                      ((SQUARE * row2 - SQUARE / 4) + SQUARE, (col2 * SQUARE) + SQUARE / 4), width=15)
 
