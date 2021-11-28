@@ -41,10 +41,6 @@ def draw_game_outlier(screen, color, line_bg, coordinates):
     # pygame.display.update()
 
 
-# def score_board(screen):
-#     pygame.draw.rect(screen, (10, 10, 100, 40), width=3)
-
-
 def draw_x(screen, row, col):
     pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 4),
                      ((SQUARE * row - SQUARE / 4) + SQUARE, (col * SQUARE - SQUARE / 4) + SQUARE), width=15)
@@ -57,8 +53,8 @@ def draw_o(screen, row, col):
 
 
 def draw_horizontal_line(screen, row, col):
-    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 4),
-                     ((SQUARE * 3 - SQUARE / 4), (col * SQUARE) + SQUARE / 4), width=15)
+    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 2),
+                     ((SQUARE * 3 - SQUARE / 4), (col * SQUARE) + SQUARE / 2), width=15)
 
 
 def draw_vertical_line(screen, row, col):
@@ -66,11 +62,12 @@ def draw_vertical_line(screen, row, col):
                      (row * SQUARE + SQUARE / 2, (3 * SQUARE) - SQUARE / 4), width=15)
 
 
-def draw_asc_diagonal(screen, row, col):
-    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 2, SQUARE / 4),
-                     (abs(col * SQUARE - SQUARE / 2), (3 * SQUARE) - SQUARE / 4), width=15)
+def draw_asc_diagonal(screen, row, col, row2, col2):
+    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 4, (col * SQUARE) + SQUARE / 4),
+                     ((SQUARE * row2 - SQUARE / 4) + SQUARE, (col2 * SQUARE - SQUARE / 4) + SQUARE), width=15)
 
 
-def draw_dsc_diagonal(screen, row, col):
-    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 2, (3 * SQUARE) - SQUARE / 2),
-                     (abs(row * SQUARE - SQUARE / 2), (3 * SQUARE) + SQUARE / 2), width=15)
+def draw_asc_diagonal2(screen, row, col, row2, col2):
+    pygame.draw.line(screen, x_color, (row * SQUARE + SQUARE / 4, (col * SQUARE - SQUARE / 4) + SQUARE),
+                     ((SQUARE * row2 - SQUARE / 4) + SQUARE, (col2 * SQUARE) + SQUARE / 4), width=15)
+

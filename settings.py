@@ -22,8 +22,10 @@ def setting(screen, FPS, BG, COORDINATES):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if pygame.Rect(RECT_P1).collidepoint(event.pos):
                     gameplay.start_game(screen, FPS, BG, COORDINATES, mode=1)
+                    value = False
                 if pygame.Rect(RECT_P2).collidepoint(event.pos):
                     gameplay.start_game(screen, FPS, BG, COORDINATES, mode=2)
+                    value = False
         pygame.display.update()
 
 
