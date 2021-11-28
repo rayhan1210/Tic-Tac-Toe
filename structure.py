@@ -1,5 +1,4 @@
-import sys
-import pygame, gameplay
+import pygame
 
 border = (11, 101, 119)
 blue = (0, 0, 255)

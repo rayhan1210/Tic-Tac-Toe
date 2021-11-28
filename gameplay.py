@@ -1,11 +1,12 @@
 import pygame
 import sys
 import structure
-import numpy, random
+import random
 
 ROW = 3
 COL = 3
 # SQUARE = 200
+LINE_COLOR = (74, 171, 155)
 board = [
     [0, 0, 0],
     [0, 0, 0],
@@ -130,8 +131,9 @@ def start_game(screen, FPS, BG, COORDINATES, mode):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
                     reset_board()
+                    player, two_player = 1, 0
                     board_full_length = 9
-                    structure.draw_game_outlier(screen, BG, (74, 171, 155), COORDINATES)
+                    structure.draw_game_outlier(screen, BG, LINE_COLOR, COORDINATES)
                     pygame.event.set_allowed(pygame.MOUSEBUTTONDOWN)
                 if event.key == pygame.K_ESCAPE:
                     screen.fill(BG)
