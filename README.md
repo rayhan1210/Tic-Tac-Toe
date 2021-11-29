@@ -4,7 +4,7 @@
 
 ### This game have to following features:
 - One player mode against bot 
-- Two player mode agaisnt another user
+- Two player mode against another user
 
 ### Some key shortcuts:
 - 'escape' key allow user to go back to main menu
